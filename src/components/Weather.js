@@ -1,14 +1,18 @@
 import { useState } from "react";
 import axios from "axios";
+import { RotatingLines } from "react-loader-spinner";
 import HourlyForecast from "./HourlyForecast";
 
 export default function Weather() {
   const [location, setLocation] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [hourlyData, setHourlyData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+
     try {
       const response = await axios.get(`/api/weather?location=${location}`);
       setWeatherData(response.data);
@@ -22,6 +26,8 @@ export default function Weather() {
     } catch (error) {
       console.error("Failed to fetch weather data:", error);
     }
+
+    setIsLoading(false);
   };
 
   return (
@@ -45,7 +51,17 @@ export default function Weather() {
             Wetter abrufen
           </button>
         </form>
-        {weatherData && (
+        {isLoading ? (
+          <div className="flex justify-center">
+            <RotatingLines
+              strokeColor="grey"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="32"
+              visible={true}
+            />{" "}
+          </div>
+        ) : weatherData ? (
           <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-lg overflow-hidden bg-white bg-opacity-75 p-4">
               <h2 className="text-2xl font-bold mb-2 text-gray-800">
@@ -67,7 +83,7 @@ export default function Weather() {
               </div>
             </div>
           </section>
-        )}
+        ) : null}
       </div>
       {hourlyData && <HourlyForecast hourlyData={hourlyData} />}
     </main>
