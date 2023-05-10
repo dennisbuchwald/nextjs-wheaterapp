@@ -1,7 +1,0 @@
-{
-  "build": {
-    "env": {
-      "OPENWEATHERMAP_API_KEY": "@OPENWEATHERMAP_API_KEY"
-    }
-  }
-}
