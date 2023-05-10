@@ -55,20 +55,11 @@ export default function Weather() {
     }
   }
 
-  console.log;
-  // ...
   return (
-    <main className="bg-gradient-to-b from-blue-200 to-blue-500 text-white min-h-screen flex items-center">
-      <div className="container mx-auto bg-white text-black p-8 rounded-lg shadow-lg">
-        {weatherData && (
-          <img
-            src={`/icons/${getWeatherIcon(weatherData.weather[0].id)}`}
-            alt={weatherData.weather[0].description}
-            className="w-64 h-64 mx-auto mb-4"
-          />
-        )}
-        <h1 className="text-4xl font-semibold mb-6 text-center text-gray-800">
-          Wetter-App
+    <main className="min-h-screen bg-gradient-to-b from-blue-400 via-blue-300 to-blue-200 text-white flex items-center px-4">
+      <div className="container mx-auto p-8 rounded-lg shadow-lg max-w-md bg-opacity-90 bg-white text-black">
+        <h1 className="text-4xl font-semibold mb-6 text-center text-black">
+          Wetter App
         </h1>
         <form onSubmit={handleSubmit} className="flex mb-6 justify-center">
           <input
@@ -96,24 +87,33 @@ export default function Weather() {
             />{" "}
           </div>
         ) : weatherData ? (
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-lg overflow-hidden bg-white bg-opacity-75 p-4">
-              <h2 className="text-2xl font-bold mb-2 text-gray-800">
-                {weatherData.name}
-              </h2>
-              <p className="text-3xl font-bold">
-                {weatherData.main.temp.toFixed(1)}°C
-              </p>
-              <p className="text-l">{weatherData.weather[0].description}</p>
-              <div className="flex items-center mt-6">
-                <div className="mr-4">
-                  <p className="font-semibold">Luftfeuchtigkeit</p>
-                  <p>{weatherData.main.humidity}%</p>
-                </div>
-                <div>
-                  <p className="font-semibold">Windgeschwindigkeit</p>
-                  <p>{weatherData.wind.speed} m/s</p>
-                </div>
+          <section className="bg-white text-black p-6 rounded-lg mt-6">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800">
+                  {weatherData.name}
+                </h2>
+                <p className="text-sm text-gray-600">
+                  {weatherData.weather[0].description}
+                </p>
+              </div>
+              <img
+                src={`/icons/${getWeatherIcon(weatherData.weather[0].id)}`}
+                alt={weatherData.weather[0].description}
+                className="w-16 h-16"
+              />
+            </div>
+            <p className="text-4xl font-bold mb-4">
+              {weatherData.main.temp.toFixed(1)}°C
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <p className="font-semibold">Luftfeuchtigkeit</p>
+                <p>{weatherData.main.humidity}%</p>
+              </div>
+              <div>
+                <p className="font-semibold">Windgeschwindigkeit</p>
+                <p>{weatherData.wind.speed} m/s</p>
               </div>
             </div>
           </section>
