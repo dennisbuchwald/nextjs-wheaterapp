@@ -25,8 +25,6 @@ export default function Weather() {
         `/api/hourlyForecast?lat=${lat}&lon=${lon}`
       );
 
-      console.log("hourlyResponse.data:", hourlyResponse.data);
-
       setHourlyData(hourlyResponse.data);
     } catch (error) {
       console.error("Failed to fetch weather data:", error);
