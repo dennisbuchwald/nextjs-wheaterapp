@@ -1,7 +1,5 @@
 import axios from "axios";
 
-//test
-
 export default async function handler(req, res) {
   const { location } = req.query;
   const apiKey = "2ff55e360ced2b4e3e835fbc697cd597";
