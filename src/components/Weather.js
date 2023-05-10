@@ -56,10 +56,10 @@ export default function Weather() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-200 to-blue-500 text-white flex items-center">
-      <div className="container mx-auto p-8 rounded-lg shadow-lg max-w-md">
-        <h1 className="text-4xl font-semibold mb-6 text-center text-white">
-          Wetter-App
+    <main className="min-h-screen bg-gradient-to-b from-blue-400 via-blue-300 to-blue-200 text-white flex items-center px-4">
+      <div className="container mx-auto p-8 rounded-lg shadow-lg max-w-md bg-opacity-90 bg-white text-black">
+        <h1 className="text-4xl font-semibold mb-6 text-center text-black">
+          Wetter App
         </h1>
         <form onSubmit={handleSubmit} className="mb-6">
           <div className="relative">

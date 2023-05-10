@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric&lang=de`
     );
     res.status(200).json(response.data);
   } catch (error) {

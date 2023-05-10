@@ -8,7 +8,7 @@ function HourlyForecast({ hourlyData }) {
   console.log(hourlyData);
 
   return (
-    <div className="bg-white text-black p-6 rounded-lg mt-6">
+    <div className="bg-opacity-90 bg-white text-black p-6 rounded-lg mt-6">
       <h2 className="text-xl font-bold mb-4">3 Stunden Vorhersage</h2>
       <div className="flex overflow-x-scroll">
         {hourlyData.list.slice(0, 8).map((hour, index) => (
