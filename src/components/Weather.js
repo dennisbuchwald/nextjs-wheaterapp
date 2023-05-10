@@ -61,22 +61,20 @@ export default function Weather() {
         <h1 className="text-4xl font-semibold mb-6 text-center text-black">
           Wetter App
         </h1>
-        <form onSubmit={handleSubmit} className="mb-6">
-          <div className="relative">
-            <input
-              type="text"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              placeholder="Ort eingeben"
-              className="w-full py-3 px-4 pl-12 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 bg-gray-200 text-gray-800"
-            />
-            <button
-              type="submit"
-              className="absolute left-0 top-0 mt-3 ml-3 bg-indigo-700 hover:bg-indigo-600 py-2 px-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-150 text-white"
-            >
-              <i className="fas fa-search"></i>
-            </button>
-          </div>
+        <form onSubmit={handleSubmit} className="flex mb-6 justify-center">
+          <input
+            type="text"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            placeholder="Ort eingeben"
+            className="flex-grow py-3 px-4 mr-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 bg-gray-200 text-gray-800"
+          />
+          <button
+            type="submit"
+            className="bg-indigo-700 hover:bg-indigo-600 py-3 px-6 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-150 text-white"
+          >
+            Wetter abrufen
+          </button>
         </form>
         {isLoading ? (
           <div className="flex justify-center">
