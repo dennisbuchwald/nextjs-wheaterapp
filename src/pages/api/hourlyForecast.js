@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,daily,alerts&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
     );
     res.status(200).json(response.data);
   } catch (error) {
@@ -15,5 +15,3 @@ export default async function handler(req, res) {
     res.status(500).json({ message: "Failed to fetch hourly forecast data" });
   }
 }
-
-//test
